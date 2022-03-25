@@ -2,4 +2,6 @@
 //refer to User class
 
 
+//entity package we are keeping POJOs , which related database
 
+//List should come from DB, you shouldn't put list in controller class
