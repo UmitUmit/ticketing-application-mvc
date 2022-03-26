@@ -14,7 +14,7 @@ public class UserController {
     public String createUser(Model model){
 
     model.addAttribute("user", new UserDTO());
-    //model.addAttribute("role", bringmeListOFRoles)
+    model.addAttribute("roles", bringmeListOFRoles);
 
         return "/user/create";
     }
