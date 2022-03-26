@@ -6,4 +6,7 @@
 
 //List should come from DB, you shouldn't put list in controller class
 
-//let's see
+//Usually when we restart app in company bootstrap needs to be innitiated first
+
+////CommandLineRunner, springboot is providing it, whenever we start the application, this class executes first
+//CommandLineRunner, springboot is providing it, whenever we start the application, this class executes first
