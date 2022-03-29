@@ -10,3 +10,5 @@
 
 ////CommandLineRunner, springboot is providing it, whenever we start the application, this class executes first
 //CommandLineRunner, springboot is providing it, whenever we start the application, this class executes first
+
+//whatever coming from html is String
