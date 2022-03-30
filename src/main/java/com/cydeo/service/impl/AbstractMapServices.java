@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class AbstractMapServices<T, ID> {
+public abstract class AbstractMapServices<T, ID> {
 
 
     protected Map<ID,T> map = new HashMap<>();

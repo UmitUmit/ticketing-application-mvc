@@ -30,7 +30,6 @@ public class UserController {
 
         return "/user/create";
     }
-
 //    @PostMapping("/create")
 //    public String insertUser(@ModelAttribute("user") UserDTO user,  Model model){
 //
@@ -47,9 +46,8 @@ public class UserController {
 //
 //        return "redirect:/user/create";
 //    }
-
     @PostMapping("/create")
-    public String insertUser(@ModelAttribute("user") UserDTO user, Model model){
+    public String insertUser(@ModelAttribute("user") UserDTO user){
 
         userService.save(user);
 
@@ -58,10 +56,10 @@ public class UserController {
     }
 
     @GetMapping("/update/{username}")
-    public String editUser(@PathVariable("username") Spring username, Model model){
+    public String editUser(@PathVariable("username") String username, Model model){
 
 
-        model.addAttribute("user",new UserDTO());
+        model.addAttribute("user",userService.findById(username));
         model.addAttribute("roles",roleService.findAll());
         model.addAttribute("users",userService.findAll());
 
@@ -69,8 +67,24 @@ public class UserController {
 
     }
 
+    @PostMapping("/update")
+    public String updateUser( UserDTO user){
+
+        userService.update(user);
+
+        return "redirect:/user/create";
+
+    }
 
 
+    @GetMapping("/delete/{username}")
+    public String deleteUser(@PathVariable("username") String username){
+        //@PathVariable coming from UI
+
+        userService.deleteById(username);
+
+        return "redirect:/user/create";
+    }
 
 
 
