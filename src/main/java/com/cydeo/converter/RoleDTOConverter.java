@@ -1,10 +1,13 @@
 package com.cydeo.converter;
 
 import com.cydeo.dto.RoleDTO;
+import com.cydeo.service.ProjectService;
 import com.cydeo.service.RoleService;
 import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 @ConfigurationPropertiesBinding
@@ -12,8 +15,11 @@ public class RoleDTOConverter implements Converter<String, RoleDTO> {
 
     RoleService roleService;
 
-    public RoleDTOConverter(RoleService roleService) {
+
+
+    public RoleDTOConverter(RoleService roleService, ProjectService projectService) {
         this.roleService = roleService;
+
     }
 
     @Override
@@ -24,4 +30,6 @@ public class RoleDTOConverter implements Converter<String, RoleDTO> {
 
         return roleService.findById(Long.parseLong(source));
     }
+
+
 }
